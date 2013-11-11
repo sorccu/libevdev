@@ -82,6 +82,7 @@ struct libevdev {
 	int driver_version;
 	unsigned long bits[NLONGS(EV_CNT)];
 	unsigned long props[NLONGS(INPUT_PROP_CNT)];
+	unsigned long syn_bits[NLONGS(SYN_CNT)];
 	unsigned long key_bits[NLONGS(KEY_CNT)];
 	unsigned long rel_bits[NLONGS(REL_CNT)];
 	unsigned long abs_bits[NLONGS(ABS_CNT)];

@@ -286,6 +286,10 @@ libevdev_set_fd(struct libevdev* dev, int fd)
 	if (rc < 0 && errno != EINVAL)
 		goto out;
 
+	rc = ioctl(fd, EVIOCGBIT(EV_SYN, sizeof(dev->syn_bits)), dev->syn_bits);
+	if (rc < 0)
+		goto out;
+
 	rc = ioctl(fd, EVIOCGBIT(EV_REL, sizeof(dev->rel_bits)), dev->rel_bits);
 	if (rc < 0)
 		goto out;
@@ -956,9 +960,6 @@ libevdev_has_event_code(const struct libevdev *dev, unsigned int type, unsigned 
 
 	if (!libevdev_has_event_type(dev, type))
 		return 0;
-
-	if (type == EV_SYN)
-		return 1;
 
 	max = type_to_mask_const(dev, type, &mask);
 

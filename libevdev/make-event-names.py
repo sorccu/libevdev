@@ -159,6 +159,7 @@ def print_mapping_table(bits):
 	print("")
 	print("#ifndef SYN_MAX /* added in 3.12  */")
 	print("#define SYN_MAX 0xf")
+	print("#define SYN_CNT (SYN_MAX+1)")
 	print("#endif")
 	print("")
 

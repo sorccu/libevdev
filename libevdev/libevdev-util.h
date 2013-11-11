@@ -74,6 +74,7 @@ type_to_mask_const(const struct libevdev *dev, unsigned int type, const unsigned
 	int max;
 
 	switch(type) {
+		max_mask(SYN, syn);
 		max_mask(ABS, abs);
 		max_mask(REL, rel);
 		max_mask(KEY, key);
